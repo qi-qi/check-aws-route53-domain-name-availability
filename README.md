@@ -42,7 +42,7 @@ if __name__ == "__main__":
     main()
 ```
 
-# 2019-04-27 Extracted AWS Route53 Supported Domain Lists:
+# 2019-04-27 Extracted AWS Route53 Supported Domains:
 ```
 .ac
 .academy
