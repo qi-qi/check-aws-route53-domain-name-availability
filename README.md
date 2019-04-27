@@ -3,7 +3,7 @@
 - Python 3.7.2 
 - aws-cli 1.16.96 
 - botocore 1.12.86:
-```
+```python
 import re
 import subprocess
 import json
