@@ -4,12 +4,11 @@
 - aws-cli 1.16.96 
 - botocore 1.12.86:
 ```
-
 import re
 import subprocess
 import json
 
-name = "qi" # => Domain Name to Check
+name_check = "qi"  # => Domain Name to Check
 aws = "aws route53domains check-domain-availability --region us-east-1 --domain-name {}"
 
 # raw html text scratched from AWS Route 53 Web Page
@@ -18,7 +17,7 @@ text2 = '<optgroup label="Other"><option value=".ac">.ac - $48.00</option><optio
 
 
 def main():
-    domain_name_list = get_domain_name_list(text1 + text2)
+    domain_name_list = get_domain_name_list(name_check, text1 + text2)
     for domain_name in domain_name_list:
         print(find(domain_name))
 
@@ -30,11 +29,10 @@ def find(domain_name):
         status = json.loads(result.stdout)['Availability']
     except Exception:
         status = 'Error'
-
     return f"{domain_name}: {status}"
 
 
-def get_domain_name_list(text):
+def get_domain_name_list(name, text):
     pattern = re.compile('value="(.+?)">')
     return [name + domain for domain in sorted(pattern.findall(text))]
 
