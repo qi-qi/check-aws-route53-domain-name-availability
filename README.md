@@ -4,11 +4,12 @@
 - aws-cli 1.16.96 
 - botocore 1.12.86:
 ```
+
 import re
 import subprocess
 import json
 
-name = "qi"
+name = "qi" # => Domain Name to Check
 aws = "aws route53domains check-domain-availability --region us-east-1 --domain-name {}"
 
 # raw html text scratched from AWS Route 53 Web Page
